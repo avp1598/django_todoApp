@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.core.mail import send_mail
-import datetime
+from datetime import datetime, timezone, timedelta
 from .models import Todo
 from django.conf import settings
+from django.contrib import messages
 
 def index(request):
     todos = Todo.objects.all()[:10]
@@ -12,12 +13,17 @@ def index(request):
         'todos':todos
     }
     for todo in todos:
-        if(todo.time==datetime.datetime.now() and not todo.complete):
+        if(todo.time==datetime.now() and not todo.complete):
             subject = 'todo check'
             message = ' check complete '
             email_from = settings.EMAIL_HOST_USER
             recipient_list = ['nakulparmar15@gmail.com',]
             send_mail( subject, message, email_from, recipient_list )
+
+        c=todo.time-datetime.now(timezone.utc)
+        timedelta(0, 8, 562000)
+        diff_seconds=divmod(c.days * 86400 + c.seconds, 60)
+        if(diff_seconds[0]<1230 and not todo.complete):  messages.info(request,'Your todos deadline is approaching!!!')
 
     return render(request, 'index.html', context)
 
@@ -56,7 +62,6 @@ def update(request, id):
         todo.text = request.POST['text']
         todo.time = request.POST['time']
         complete = request.POST.get('cm', False)
-        print("c==",complete)
         if(complete=="on"): complete=True
         else: complete=False
 
