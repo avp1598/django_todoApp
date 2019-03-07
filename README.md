@@ -15,3 +15,9 @@ initdb -D /path/to/db
 postgres -D /path/to/db
 3. In a seperate terminal run createdb  
 4. Then you can use psql command line interface to create a user and view databases and tables.
+
+Now to run the app:-
+1. Install the required dependencies.
+2. Execute python manage.py makemigrations
+3. Execute python manage.py migrate
+4. Execute pyhton manage.py runserver
