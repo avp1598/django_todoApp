@@ -10,8 +10,8 @@ This app has been created for a single user but can be extended to cater to mult
 
 postgreSQL setup(if needed to run on local machine) providing steps to setup postgreSQL in anaconda:
 1. download postgres for anaconda
-2. run the following commands \n
-  initdb -D /path/to/db
-  postgres -D /path/to/db
+2. run the following commands 
+initdb -D /path/to/db, 
+postgres -D /path/to/db
 3. In a seperate terminal run createdb
 4 Then you can use psql command line interface to create a user and view databases and tables.
