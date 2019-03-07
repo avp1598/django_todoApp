@@ -25,4 +25,4 @@ Now to run the app:-
 You can view the images I have uploaded for each page if incase you are unable to run the app.
 Thank you
 
-![](home.png)
+![](images/home.PNG)
