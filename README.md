@@ -25,4 +25,14 @@ Now to run the app:-
 You can view the images I have uploaded for each page if incase you are unable to run the app.
 Thank you
 
+home page
 ![](images/home.PNG)
+
+create page
+![](images/create.PNG)
+
+update page
+![](images/update.PNG)
+
+Postgres database running
+![](images/postgres.PNG)
