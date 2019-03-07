@@ -21,3 +21,6 @@ Now to run the app:-
 2. Execute python manage.py makemigrations
 3. Execute python manage.py migrate
 4. Execute pyhton manage.py runserver
+
+You can view the images I have uploaded for each page if incase you are unable to run the app.
+Thank you
