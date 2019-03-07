@@ -7,7 +7,7 @@ from django.conf import settings
 from django.contrib import messages
 
 def index(request):
-    todos = Todo.objects.all()[:10]
+    todos = Todo.objects.all()
 
     context = {
         'todos':todos
@@ -17,12 +17,13 @@ def index(request):
             subject = 'todo check'
             message = ' check complete '
             email_from = settings.EMAIL_HOST_USER
-            recipient_list = ['nakulparmar15@gmail.com',]
-            send_mail( subject, message, email_from, recipient_list )
+            recipient_list = ['nakulparmar15@gmail.com']
+            send_mail( subject, message, email_from, recipient_list ) #Mailing user 
 
         c=todo.time-datetime.now(timezone.utc)
         timedelta(0, 8, 562000)
         diff_seconds=divmod(c.days * 86400 + c.seconds, 60)
+        #if 10 hours left for deadline alert user
         if(diff_seconds[0]<1230 and not todo.complete):  messages.info(request,'Your todos deadline is approaching!!!')
 
     return render(request, 'index.html', context)
