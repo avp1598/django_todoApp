@@ -1,17 +1,21 @@
 {% include 'partials/header.html' %}
+<div class="col-xs-2">
 <form action="{% url 'add' %}" method="post">
 {% csrf_token %}
   <label for="title">Title</label><br />
-  <input type="text" name="title" id="title" />
+  <input type="text" name="title" id="title" class="form-control" />
   <br>
   <label for="text">Text</label><br />
-  <textarea name="text" id="text"></textarea>
+  <textarea name="text" id="text" class="form-control"></textarea>
   <br><br>
-  Deadline<input type="datetime-local" name="time" id="time">
+  <label for="time">Deadline</label><br />
+  <input type="datetime-local" name="time" id="time" class="form-control">
   <br><br>
-  Complete<input type="checkbox" id="cm" name="cm"/><br><br>
-  <input type="submit" value="Submit" />
+  <label for="cm">Complete</label><br />
+  <input type="checkbox" id="cm" name="cm"/><br><br>
+  <button type="submit" class="btn btn-default">Submit</button>
 </form>
 <br>
-<a href="/">Go Back</a>
+<a href="/"><button type="button" class="btn btn-link ml-auto">Go Back</button></a>
+</div>
 {% include 'partials/footer.html' %}

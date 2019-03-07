@@ -1,11 +1,22 @@
+{% load static %}
 {% include 'partials/header.html' %}
-    <ul>
-      {% for todo in todos %}
-        <li><a href="/todos/details/{{todo.id}}">{{todo.title}}</a>: {{todo.text}}</li></br>
-        <p>{{todo.time}}</p>
-        <p>Completed:{{todo.complete}}</p>
-        <a href="/todos/update/{{todo.id}}">Update</a>
-        <a href="/todos/delete/{{todo.id}}"><p class="delete">DELETE</p></a>
-      {% endfor %}
-    </ul>
-{% include 'partials/footer.html' %}
+    <div class="content container">
+    <div class="row">
+        <div class="col-md-8">
+            {% for todo in todos %}
+                <div class="post">
+                    <h2><a href="/todos/details/{{todo.id}}">{{todo.title}}</a></h2>
+                    <p>{{ todo.text|linebreaksbr }}</p>
+                    <div class="date">
+                      <p>Deadline: {{todo.time}}</p>
+                  </div>
+                  <span class="label label-warning">Completed: {{todo.complete}}</span><br><br>
+                  <a href="/todos/delete/{{todo.id}}"><button type="button" class="btn btn-danger">Delete</button></a>
+                  <a href="/todos/update/{{todo.id}}"><button type="button" class="btn btn-light">Update</button></a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+		</div>
+    </body>
+</html>

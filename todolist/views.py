@@ -40,7 +40,7 @@ def add(request):
         title = request.POST['title']
         text = request.POST['text']
         time = request.POST['time']
-        complete = request.get('cm', False)
+        complete = request.POST.get('cm', False)
         if(complete=="on"): complete=True
         else: complete=False
 
